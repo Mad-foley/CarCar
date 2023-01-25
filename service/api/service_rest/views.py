@@ -92,3 +92,5 @@ def api_appointment_history(request,vin):
     elif request.method == "DELETE":
         count, _ = Appointment.objects.filter(vin=vin).delete()
         return JsonResponse({"deleted": count > 0})
+
+        
