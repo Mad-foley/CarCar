@@ -31,6 +31,7 @@ function Nav() {
             <NavDropdown id="nav-dropdown-dark-example" title="Technicians" menuVariant="dark">
                 <NavDropdown.Item href="/technicians">View technicians </NavDropdown.Item>
                 <NavDropdown.Item href="/technicians/new">Add a technician</NavDropdown.Item>
+                <NavDropdown.Item href="/inventory/new-automobile">Add automobile to inventory</NavDropdown.Item>
             </NavDropdown>
           </li>
           </ul>
