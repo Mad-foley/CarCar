@@ -97,7 +97,7 @@ function AppointmentList () {
             </tbody>
           </table>
           <div>
-          <NavLink className="nav-link" aria-current="page" to="new"><button type="button" class="btn btn-success">Create New Appointment</button></NavLink>
+          <NavLink className="nav-link" aria-current="page" to="new"><button type="button" className="btn btn-success">Create New Appointment</button></NavLink>
           <NavLink className="nav-link" to="history"><button className="btn btn-success">Appointment History</button></NavLink>
           </div>
         </div>

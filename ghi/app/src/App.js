@@ -13,6 +13,10 @@ import SalesForm from './sales/SalesForm';
 import TechnicianForm from './technician/TechnicianForm';
 import TechnicianList from './technician/TechnicianList';
 import CustomerForm from './CustomerForm';
+import ManufacturerForm from './manufacturers/ManufacturerForm';
+import ManufacturerList from './manufacturers/ManufacturerList';
+import ModelList from './models/ModelList'
+import ModelForm from './models/ModelForm';
 
 
 
@@ -44,6 +48,14 @@ function App() {
           </Route>
           <Route path="customers">
             <Route path="new" element={<CustomerForm />} />
+          </Route>
+          <Route path="/manufacturers">
+            <Route path="" element={<ManufacturerList />} />
+            <Route path='new' element={<ManufacturerForm />} />
+          </Route>
+          <Route path="/models">
+            <Route path="" element={<ModelList/>} />
+            <Route path="new" element={<ModelForm />} />
           </Route>
         </Routes>
       </div>

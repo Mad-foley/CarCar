@@ -27,12 +27,18 @@ def api_list_technicians(request):
 @require_http_methods(["GET", "POST"])
 def api_list_appointments(request):
     if request.method == "GET":
-        appointments = Appointment.objects.all()
-        return JsonResponse(
-            {"appointments": appointments},
-            encoder=AppointmentListEncoder,
-            safe=False,
-        )
+        try:
+            appointments = Appointment.objects.all()
+            return JsonResponse(
+                {"appointments": appointments},
+                encoder=AppointmentListEncoder,
+                safe=False,
+            )
+        except Appointment.DoesNotExist:
+            return JsonResponse(
+                {"message": "No Appointments"},
+                status=400,
+                )
     else:
         content = json.loads(request.body)
         try:

@@ -18,8 +18,9 @@ function Nav() {
           <li className="nav-item">
             <NavDropdown id="nav-dropdown-dark-example" title="Inventory" menuVariant="dark">
                 <NavDropdown.Item href="/inventory/automobiles">View all automobiles</NavDropdown.Item>
-                <NavDropdown.Item href="/inventory/automobiles/new">Add automobile to inventory</NavDropdown.Item>
+                <NavDropdown.Item href="/inventory/new-automobile">Add automobile to inventory</NavDropdown.Item>
             </NavDropdown>
+            </li>
             <li className="nav-item">
             <NavDropdown id="nav-dropdown-dark-example" title="Appointments" menuVariant="dark">
                 <NavDropdown.Item href="/appointments">Show appointments</NavDropdown.Item>
@@ -27,11 +28,20 @@ function Nav() {
                 <NavDropdown.Item href="/appointments/history">Appointment history</NavDropdown.Item>
             </NavDropdown>
             </li>
-            <li className="nav-item"></li>
+            <li className="nav-item">
             <NavDropdown id="nav-dropdown-dark-example" title="Technicians" menuVariant="dark">
                 <NavDropdown.Item href="/technicians">View technicians </NavDropdown.Item>
                 <NavDropdown.Item href="/technicians/new">Add a technician</NavDropdown.Item>
-                <NavDropdown.Item href="/inventory/new-automobile">Add automobile to inventory</NavDropdown.Item>
+            </NavDropdown>
+          </li>
+          <li className="nav-item">
+            <NavDropdown id="nav-dropdown-dark-example" title="Manufacturers" menuVariant="dark">
+                <NavDropdown.Item href="/manufacturers">View manufacturers </NavDropdown.Item>
+                <NavDropdown.Item href="/manufacturers/new">Add a manufacturer </NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown id="nav-dropdown-dark-example" title="Models" menuVariant="dark">
+                <NavDropdown.Item href="/models">View models </NavDropdown.Item>
+                <NavDropdown.Item href="/models/new">Add a model </NavDropdown.Item>
             </NavDropdown>
           </li>
           </ul>
