@@ -29,7 +29,7 @@ class CustomerEncoder(ModelEncoder):
     properties = [
         "name",
         "address",
-        "phone",
+        "phone_number",
         "id",
     ]
 
@@ -102,16 +102,16 @@ def show_customer(request, id):
 @require_http_methods(["GET","POST"])
 def list_employee(request):
     if request.method == "GET":
-        employee = Employee.objects.all()
+        salespeople = Employee.objects.all()
         return JsonResponse(
-            {"employee": employee},
+            {"salespeople": salespeople},
             encoder=EmployeeEncoder
             )
     else:
         content = json.loads(request.body)
-        employee = Employee.objects.create(**content)
+        salesperson = Employee.objects.create(**content)
         return JsonResponse(
-            employee,
+            salesperson,
             encoder=EmployeeEncoder,
             safe=False,
         )
@@ -121,9 +121,9 @@ def list_employee(request):
 @require_http_methods(["GET", "DELETE"])
 def show_employee(request, id):
     if request.method == "GET":
-        employee = Employee.objects.filter(id=id)
+        salesperson = Employee.objects.filter(id=id)
         return JsonResponse(
-            {"employee": employee},
+            {"salesperson": salesperson},
             encoder= EmployeeEncoder,
             safe=False,
         )
@@ -134,15 +134,15 @@ def show_employee(request, id):
         content = json.load(request.body)
         try:
             Employee.objects.filter(id=id).update(**content)
-            employee = Employee.objects.get(id=id)
+            salesperson = Employee.objects.get(id=id)
             return JsonResponse(
-                employee,
+                salesperson,
                 encoder= EmployeeEncoder,
                 safe=False,
             )
         except Employee.DoesNotExist:
             return JsonResponse(
-                {"message": "Invalid employee"},
+                {"message": "Invalid salesperson"},
                 status = 400,
             )
 

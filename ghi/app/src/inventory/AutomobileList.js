@@ -2,22 +2,21 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 function AutomobileList() {
-    const [automobile, setAutomobile] = useState([])
+    const [autos, setAutomobiles] = useState([])
 
-    const getData = async () => {
-        const url = await fetch`http://localhost:8100/api/automobiles/}`;
+    const getData = async (e) => {
+        const url = await fetch(`http://localhost:8100/api/automobiles/`);
         const data = await url.json()
-        setAutomobile(data.autos)
+        setAutomobiles(data.autos)
     }
 
     useEffect(() => {
-
         getData();
     }, [])
 
   return (
     <div>
-
+      <h1>Available Automobiles</h1>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -29,26 +28,16 @@ function AutomobileList() {
           </tr>
         </thead>
         <tbody>
-          {automobile.map(automobile => {
+          {autos?.map(automobile => {
             return (
-              <tr key={automobile.id}>
+              <tr key={automobile.href}>
                 <td>
                 {automobile.vin}
                 </td>
                 <td>{automobile.color}</td>
                 <td>{automobile.model.name}</td>
                 <td>{automobile.year}</td>
-                <td>{automobile.manufacturer.name}</td>
-                <td>
-                <button style={{ color: "#FF0000" }}
-                className="btn"
-                type="delete" onClick = { async ()=>{
-                const url = await fetch(`http://localhost:8100/api/automobiles/${automobile.id}/`,{ method:"DELETE"})
-                const data = await url.json()
-                getData()
-                }}
-                >DELETE</button>
-                </td>
+                <td>{automobile.model.manufacturer.name}</td>
               </tr>
             );
           })}
@@ -56,7 +45,7 @@ function AutomobileList() {
       </table>
       <div>
         <NavLink className="nav-link" aria-current="page" to="new">
-          <button>ADD</button>
+          <button className="btn btn-info">Add Automobile</button>
         </NavLink>
       </div>
     </div>
