@@ -8,7 +8,10 @@ function SalesPersonForm() {
   });
 
   const [hasSignedUp, setHasSignedUp] = useState(false);
+  const [bad, setBad] = useState(false);
+  const [submitted, setSubmit] = useState(false);
 
+  
   const getData = async () => {
     const url = "http://localhost:8090/api/salespeople/";
     const response = await fetch(url);
@@ -42,20 +45,28 @@ function SalesPersonForm() {
       },
     };
     const response = await fetch(url, fetchConfig);
-
     if (response.ok) {
-      setFormData({
-        name: "",
-        employee_number: "",
-      });
-      setHasSignedUp(true);
-    }
-  };
+      document.getElementById("form").reset()
+      setSubmit(true)
+      setTimeout(() => {
+          setSubmit(false)
+        }, 606);
+    } else {
+      setBad(false)
+      setSubmit(true)
+      setTimeout(() => {
+          setBad(false)
+        }, 700);
+    };
+};
+
 
   return (
     <div className="row">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
+        { bad && <div className="alert alert-danger">Failed to upload</div>}
+        { submitted && <div className="alert alert-success">Success!</div>}
           <h1>Add Salesperson</h1>
           <form onSubmit={handleSubmit} id="create-auto-form">
             <div className="form-floating mb-3">
