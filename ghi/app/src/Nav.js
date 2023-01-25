@@ -23,7 +23,6 @@ function Nav() {
             <NavDropdown id="nav-dropdown-dark-example" title="Manufacturers" menuVariant="dark">
                 <NavDropdown.Item href="/manufacturers">View manufacturers </NavDropdown.Item>
                 <NavDropdown.Item href="/manufacturers/new">Add a manufacturer </NavDropdown.Item>
-                <NavDropdown.Item href="/inventory/automobiles/new">Add automobile to inventory</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown id="nav-dropdown-dark-example" title="Models" menuVariant="dark">
                 <NavDropdown.Item href="/models">View models </NavDropdown.Item>
