@@ -97,8 +97,8 @@ function AutomobileForm () {
                           })}
                   </select>
               </div>
-              <Link to="/automobiles" className="btn btn-info" style={{float: "right"}}>View Automobiles</Link>
-              <button className="btn btn-info">ADD</button>
+              <Link to="/inventory/automobiles" className="btn btn-info" style={{float: "right"}}>View Automobiles</Link>
+              <button className="btn btn-info">Add!</button>
               </form>
               </div>
           </div>

@@ -124,7 +124,7 @@ const SalesForm = () => {
                 </div>
 
                 <Link to="/sales" className="btn btn-info" style={{float: "right"}}>View all sales</Link>
-                <button className="btn btn-info">Create it!</button>
+                <button className="btn btn-info">Finish</button>
               </form>
             </div>
           </div>
