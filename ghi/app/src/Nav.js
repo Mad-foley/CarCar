@@ -18,7 +18,7 @@ function Nav() {
           <li className="nav-item">
             <NavDropdown id="nav-dropdown-dark-example" title="Inventory" menuVariant="dark">
                 <NavDropdown.Item href="/inventory/automobiles">View all automobiles</NavDropdown.Item>
-                <NavDropdown.Item href="/inventory/new-automobile">Add automobile to inventory</NavDropdown.Item>
+                <NavDropdown.Item href="/inventory/automobiles/new">Add automobile to inventory</NavDropdown.Item>
             <li className="nav-item">
             <NavDropdown id="nav-dropdown-dark-example" title="Manufacturers" menuVariant="dark">
                 <NavDropdown.Item href="/manufacturers">View manufacturers </NavDropdown.Item>
