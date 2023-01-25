@@ -123,8 +123,8 @@ const SalesForm = () => {
                     <label htmlFor='price'>Price</label>
                 </div>
 
-                <Link to="/sales" className="btn btn-info" style={{float: "right"}}>View all sales</Link>
-                <button className="btn btn-info">Finish</button>
+                <Link to="/sales" className="btn btn-success" style={{float: "right"}}>View all sales</Link>
+                <button className="btn btn-success">Finish</button>
               </form>
             </div>
           </div>

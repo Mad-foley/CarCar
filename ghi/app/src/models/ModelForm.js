@@ -77,7 +77,7 @@ function ModelForm() {
                             })}
                     </select>
                 </div>
-                <button className="btn btn-info">ADD</button>
+                <button class="btn btn-success">Add Model</button>
                 </form>
                 </div>
             </div>

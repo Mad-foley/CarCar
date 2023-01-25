@@ -36,7 +36,7 @@ function AppointmentHistory(){
             <div class="input-group">
               <div class="form-inline">
                   <input class="form-control mr-sm-2" type="search" placeholder="Search VIN#" aria-label="Search"onChange={handleInputChange} className="vin" autoFocus></input>
-                  <button class="btn btn-outline-success my-2 my-sm-0" onClick={handleSubmit} type="submit">Search</button>
+                  <button class="btn btn-outline-success" onClick={handleSubmit} type="submit">Search</button>
                 </div>
               </div>
         </div>

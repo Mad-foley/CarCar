@@ -45,7 +45,7 @@ function AutomobileList() {
       </table>
       <div>
         <NavLink className="nav-link" aria-current="page" to="new">
-          <button className="btn btn-info">Add Automobile</button>
+          <button className="btn btn-success">Add Automobile</button>
         </NavLink>
       </div>
     </div>

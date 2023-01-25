@@ -82,7 +82,7 @@ function SalesPersonForm() {
               />
               <label htmlFor="employee_number">Employee Number</label>
             </div>
-            <button className="btn btn-info">Add</button>
+            <button className="btn btn-success">Add</button>
           </form>
         </div>
       </div>

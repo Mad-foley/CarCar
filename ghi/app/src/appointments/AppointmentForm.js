@@ -85,7 +85,7 @@ function AppointmentForm () {
                         })}
                 </select>
                 <hr></hr>
-                <button className="btn btn-info">Create</button>
+                <button className="btn btn-success">Create</button>
                 </form>
             </div>
             </div>

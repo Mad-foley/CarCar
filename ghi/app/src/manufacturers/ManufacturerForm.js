@@ -46,7 +46,7 @@ function ManufacturerForm() {
                     <label htmlFor="name">Name</label>
                 </div>
                 <hr></hr>
-                <button className="btn btn-info">Create</button>
+                <button className="btn btn-success">Create</button>
                 </form>
             </div>
             </div>

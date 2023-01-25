@@ -50,7 +50,7 @@ function TechnicianForm() {
                     <label htmlFor="employee_number">Employee number</label>
                 </div>
                 <hr></hr>
-                <button className="btn btn-info">Create</button>
+                <button className="btn btn-success">Create</button>
                 </form>
             </div>
             </div>
