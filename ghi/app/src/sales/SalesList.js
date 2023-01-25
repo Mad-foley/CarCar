@@ -44,7 +44,7 @@ function SaleList() {
         </table>
      <div>
         <NavLink className="nav-link" aria-current="page" to="new">
-          <button>ADD</button>
+          <button className="btn btn-info">Add!</button>
         </NavLink>
       </div>
       </div>

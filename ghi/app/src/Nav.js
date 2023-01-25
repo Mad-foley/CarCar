@@ -23,6 +23,7 @@ function Nav() {
             <NavDropdown id="nav-dropdown-dark-example" title="Manufacturers" menuVariant="dark">
                 <NavDropdown.Item href="/manufacturers">View manufacturers </NavDropdown.Item>
                 <NavDropdown.Item href="/manufacturers/new">Add a manufacturer </NavDropdown.Item>
+                <NavDropdown.Item href="/inventory/automobiles/new">Add automobile to inventory</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown id="nav-dropdown-dark-example" title="Models" menuVariant="dark">
                 <NavDropdown.Item href="/models">View models </NavDropdown.Item>
@@ -44,6 +45,17 @@ function Nav() {
                 <NavDropdown.Item href="/technicians/new">Add a technician</NavDropdown.Item>
             </NavDropdown>
           </li>
+          <li className="nav-item"></li>
+            <NavDropdown id="nav-dropdown-dark-example" title="Sales" menuVariant="dark">
+                <NavDropdown.Item href="/sales">View all sales </NavDropdown.Item>
+                <NavDropdown.Item href="/sales/employeehistory">View employee sales</NavDropdown.Item>
+                <NavDropdown.Item href="/sales/new">Add sale</NavDropdown.Item>
+                <NavDropdown.Item href="/sales/newemployee">Add salesperson</NavDropdown.Item>
+            </NavDropdown>
+            <li className="nav-item"></li>
+            <NavDropdown id="nav-dropdown-dark-example" title="Customer" menuVariant="dark">
+                <NavDropdown.Item href="/customers/new">Add a customer </NavDropdown.Item>
+            </NavDropdown>
           </ul>
         </div>
       </div>

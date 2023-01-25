@@ -38,7 +38,7 @@ function App() {
           </Route>
           <Route path="inventory">
             <Route path="automobiles" element={<AutomobileList />} />
-            <Route path="new-automobile" element={<AutomobileForm />} />
+            <Route path="automobiles/new" element={<AutomobileForm />} />
           </Route>
           <Route path="sales">
             <Route path="newemployee" element={<SalesPersonForm/>}/>
