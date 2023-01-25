@@ -1,5 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AppointmentList from './appointments/AppointmentList';
 import MainPage from './MainPage';
+import AppointmentForm from './appointments/AppointmentForm'
+import AppointmentHistory from './appointments/AppointmentHistory';
 import Nav from './Nav';
 import AutomobileForm from './inventory/AutomobileForm';
 import AutomobileList from './inventory/AutomobileList';
@@ -7,6 +10,8 @@ import SalesPersonForm from './sales/SalesPersonForm';
 import SalesPersonHistory from './sales/SalesPersonHistory';
 import SalesList from './sales/SalesList';
 import SalesForm from './sales/SalesForm';
+import TechnicianForm from './technician/TechnicianForm';
+import TechnicianList from './technician/TechnicianList';
 import CustomerForm from './CustomerForm';
 
 
@@ -18,6 +23,15 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/appointments">
+            <Route path='' element={<AppointmentList />} />
+            <Route path='new' element={<AppointmentForm />}/>
+            <Route path='history' element={<AppointmentHistory />} />
+          </Route>
+          <Route path='/technicians'>
+            <Route path="" element={<TechnicianList />} />
+            <Route path="new" element={<TechnicianForm />} />
+          </Route>
           <Route path="inventory">
             <Route path="automobiles" element={<AutomobileList />} />
             <Route path="new-automobile" element={<AutomobileForm />} />

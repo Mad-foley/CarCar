@@ -20,8 +20,6 @@ function Nav() {
                 <NavDropdown.Item href="/inventory/automobiles">View all automobiles</NavDropdown.Item>
                 <NavDropdown.Item href="/inventory/new-automobile">Add automobile to inventory</NavDropdown.Item>
             </NavDropdown>
-            
-
           </li>
           </ul>
         </div>
