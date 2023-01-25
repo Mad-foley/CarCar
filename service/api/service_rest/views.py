@@ -79,16 +79,42 @@ def api_list_appointments(request):
             encoder=AppointmentListEncoder,
             safe=False,
         )
+@require_http_methods(["GET", "PUT", "DELETE"])
+def api_appointment_details(request,vin,id):
+    if request.method == "GET":
+        appointments = Appointment.objects.filter(vin=vin,id=id)
+        return JsonResponse(
+            appointments,
+            encoder=AppointmentListEncoder,
+            safe=False,
+        )
+    elif request.method == "DELETE":
+        count, _ = Appointment.objects.filter(vin=vin, id=id).delete()
+        return JsonResponse({"deleted": count > 0})
+    else:
+        # only works if just sending finished
+        content = json.loads(request.body)
+        try:
+            Appointment.objects.get(vin=vin, id=id)
+        except Appointment.DoesNotExist:
+            return JsonResponse(
+                {"message": "Appointment ID not found"},
+                status=404,
+            )
+        Appointment.objects.filter(vin=vin,id=id).update(**content)
+        appointment = Appointment.objects.get(vin=vin, id=id)
+        return JsonResponse(
+            appointment,
+            encoder=AppointmentListEncoder,
+            safe=False,
+        )
 
-@require_http_methods(["GET", "DELETE"])
+@require_http_methods(["GET"])
 def api_appointment_history(request,vin):
     if request.method == "GET":
-        appointment = Appointment.objects.filter(vin)
+        appointment = Appointment.objects.filter(vin=vin)
         return JsonResponse(
                 appointment,
                 encoder=AppointmentListEncoder,
                 safe=False,
             )
-    elif request.method == "DELETE":
-        count, _ = Appointment.objects.filter(vin=vin).delete()
-        return JsonResponse({"deleted": count > 0})

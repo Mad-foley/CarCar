@@ -19,9 +19,9 @@ class Appointment(models.Model):
     technician = models.ForeignKey(
         Technician,
         related_name="technician",
-        on_delete=models.CASCADE,
+        on_delete=models.PROTECT,
     )
-    reason = models.CharField(max_length=200)
+    reason = models.TextField()
     finished = models.BooleanField(default=False)
     vip = models.BooleanField()
 
@@ -29,4 +29,4 @@ class Appointment(models.Model):
         return self.vin
 
     def get_api_url(self):
-        return reverse("api_appointment_history", kwargs={"vin": self.vin})
+        return reverse("api_appointment_details", kwargs={ "vin": self.vin, "id": self.id})
