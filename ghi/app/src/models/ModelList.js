@@ -17,13 +17,14 @@ function ModelList() {
 
     return (
         <div>
-          <h1>Technicians</h1>
+          <h1>Models</h1>
           <hr></hr>
           <table className="table table-striped">
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Employee Number</th>
+                <th>Picture</th>
+                <th>Manufacturer</th>
               </tr>
             </thead>
             <tbody>
@@ -31,7 +32,8 @@ function ModelList() {
                 return (
                   <tr key={model.name}>
                     <td>{model.name}</td>
-                    <td><img src={model.picture_url}/></td>
+                    <td><img src={model.picture_url} height="150px"/></td>
+                    <td>{model.manufacturer.name}</td>
                   </tr>
                 );
               })}
@@ -40,7 +42,7 @@ function ModelList() {
           <div>
             <hr>
             </hr>
-            <NavLink className="nav-link" to="new"><button className="btn btn-success">Add New Technician</button></NavLink>
+            <NavLink className="nav-link" to="new"><button className="btn btn-success">Add New Model</button></NavLink>
           </div>
         </div>
       )

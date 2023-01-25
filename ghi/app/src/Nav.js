@@ -19,6 +19,16 @@ function Nav() {
             <NavDropdown id="nav-dropdown-dark-example" title="Inventory" menuVariant="dark">
                 <NavDropdown.Item href="/inventory/automobiles">View all automobiles</NavDropdown.Item>
                 <NavDropdown.Item href="/inventory/new-automobile">Add automobile to inventory</NavDropdown.Item>
+            <li className="nav-item">
+            <NavDropdown id="nav-dropdown-dark-example" title="Manufacturers" menuVariant="dark">
+                <NavDropdown.Item href="/manufacturers">View manufacturers </NavDropdown.Item>
+                <NavDropdown.Item href="/manufacturers/new">Add a manufacturer </NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown id="nav-dropdown-dark-example" title="Models" menuVariant="dark">
+                <NavDropdown.Item href="/models">View models </NavDropdown.Item>
+                <NavDropdown.Item href="/models/new">Add a model </NavDropdown.Item>
+            </NavDropdown>
+          </li>
             </NavDropdown>
             </li>
             <li className="nav-item">
@@ -32,16 +42,6 @@ function Nav() {
             <NavDropdown id="nav-dropdown-dark-example" title="Technicians" menuVariant="dark">
                 <NavDropdown.Item href="/technicians">View technicians </NavDropdown.Item>
                 <NavDropdown.Item href="/technicians/new">Add a technician</NavDropdown.Item>
-            </NavDropdown>
-          </li>
-          <li className="nav-item">
-            <NavDropdown id="nav-dropdown-dark-example" title="Manufacturers" menuVariant="dark">
-                <NavDropdown.Item href="/manufacturers">View manufacturers </NavDropdown.Item>
-                <NavDropdown.Item href="/manufacturers/new">Add a manufacturer </NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown id="nav-dropdown-dark-example" title="Models" menuVariant="dark">
-                <NavDropdown.Item href="/models">View models </NavDropdown.Item>
-                <NavDropdown.Item href="/models/new">Add a model </NavDropdown.Item>
             </NavDropdown>
           </li>
           </ul>
