@@ -90,7 +90,7 @@ function AppointmentList () {
                     <td>{ new Date(appointment.appointment_time).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</td>
                     <td>{ appointment.reason}</td>
                     <td>{ appointment.technician.name }</td>
-                    <td><button onClick={handleDelete} name={appointment.href} className="btn-outline-danger">Cancel</button><button onClick={handleFinished}  className="btn btn-success" name={appointment.href}>Finished</button></td>
+                    <td><button onClick={handleDelete} name={appointment.href} className="btn btn-danger">Cancel</button><button onClick={handleFinished}  className="btn btn-success" name={appointment.href}>Finished</button></td>
                   </tr>
                 );
               })}
