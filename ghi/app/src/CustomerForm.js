@@ -7,8 +7,8 @@ const CustomerForm = () => {
         phone_number: ''
     });
 
-    const [error, setError] = useState(false);
-    const [sent, setSent] = useState(false);
+    const [bad, setBad] = useState(false);
+    const [submitted, setSubmit] = useState(false);
 
     const handleFormChange = (e) => {
         setFormData({
@@ -30,26 +30,27 @@ const CustomerForm = () => {
         const response = await fetch("http://localhost:8090/api/customers/", fetchConfig);
         if (response.ok) {
             document.getElementById("form").reset()
-            setSent(true)
+            setSubmit(true)
             setTimeout(() => {
-                setSent(false)
-              }, 3000);
-        } else {
-            setSent(false)
-            setError(true)
+                setSubmit(false)
+              }, 606);
+          } else {
+            setBad(false)
+            setSubmit(true)
             setTimeout(() => {
-                setError(false)
-              }, 4000);
-        };
-    };
+                setBad(false)
+              }, 700);
+          };
+      };
+
 
     return (
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-3 mt-4">
-                    { error && <div className="alert alert-danger">Failed to add</div>}
-                    { sent && <div className="alert alert-success">Success!</div>}
-                    <h1>Add a customer</h1>
+                { bad && <div className="alert alert-danger">Failed to upload</div>}
+                { submitted && <div className="alert alert-success">Success!</div>}
+                  <h1>Add a customer</h1>
                     <form onSubmit={handleSubmit} id="form">
 
                         <div className="form-floating mb-3">
