@@ -1,34 +1,10 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from common.json import ModelEncoder
 from .models import Technician, AutomobileVO, Appointment
+from .encoders import TechnicianListEncoder, AppointmentListEncoder
 from django.views.decorators.http import require_http_methods
-from datetime import datetime
 import json
 
-class AutomobileVOEncoder(ModelEncoder):
-    model = AutomobileVO
-    properties = ['vin', 'import_href']
-
-class TechnicianListEncoder(ModelEncoder):
-    model = Technician
-    properties = [ 'name', "employee_number"]
-
-
-class AppointmentListEncoder(ModelEncoder):
-    model = Appointment
-    properties = [
-        "vin",
-        "customer_name",
-        "appointment_time",
-        "reason",
-        "finished",
-        "vip",
-        "technician",
-        ]
-    encoders = {
-        "technician": TechnicianListEncoder(),
-    }
 
 @require_http_methods(["GET", "POST"])
 def api_list_technicians(request):
@@ -79,6 +55,7 @@ def api_list_appointments(request):
             encoder=AppointmentListEncoder,
             safe=False,
         )
+
 @require_http_methods(["GET", "PUT", "DELETE"])
 def api_appointment_details(request,vin,id):
     if request.method == "GET":

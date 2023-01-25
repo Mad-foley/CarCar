@@ -20,10 +20,17 @@ function Nav() {
                 <NavDropdown.Item href="/inventory/automobiles">View all automobiles</NavDropdown.Item>
                 <NavDropdown.Item href="/inventory/automobiles/new">Add automobile to inventory</NavDropdown.Item>
             </NavDropdown>
+            <li className="nav-item">
             <NavDropdown id="nav-dropdown-dark-example" title="Appointments" menuVariant="dark">
-                <NavDropdown.Item href="/appointments">Show Appointments</NavDropdown.Item>
-                <NavDropdown.Item href="/appointments/new">Add new Appointment</NavDropdown.Item>
-                <NavDropdown.Item href="/appointments/history">Appointment History</NavDropdown.Item>
+                <NavDropdown.Item href="/appointments">Show appointments</NavDropdown.Item>
+                <NavDropdown.Item href="/appointments/new">Add new appointment</NavDropdown.Item>
+                <NavDropdown.Item href="/appointments/history">Appointment history</NavDropdown.Item>
+            </NavDropdown>
+            </li>
+            <li className="nav-item"></li>
+            <NavDropdown id="nav-dropdown-dark-example" title="Technicians" menuVariant="dark">
+                <NavDropdown.Item href="/technicians">View technicians </NavDropdown.Item>
+                <NavDropdown.Item href="/technicians/new">Add a technician</NavDropdown.Item>
             </NavDropdown>
           </li>
           </ul>

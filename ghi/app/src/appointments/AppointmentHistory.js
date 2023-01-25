@@ -34,13 +34,10 @@ function AppointmentHistory(){
             <h1>Service History</h1>
             <hr></hr>
             <div class="input-group">
-              <div class="form-outline">
-                <input placeholder="VIN Search" id="search-focus" type="search" class="form-control" onChange={handleInputChange} className="vin"></input>
-                <label class="form-label" for="form1">Search</label>
+              <div class="form-inline">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search VIN#" aria-label="Search"onChange={handleInputChange} className="vin" autoFocus></input>
+                  <button class="btn btn-outline-success my-2 my-sm-0" onClick={handleSubmit} type="submit">Search</button>
                 </div>
-                <button type="button" onClick={handleSubmit} class="btn btn-primary">
-                  <i class="fas fa-search"></i>
-                </button>
               </div>
         </div>
           <table className="table table-striped">
