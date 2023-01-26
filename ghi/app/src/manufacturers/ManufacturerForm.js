@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 
 function ManufacturerForm() {
+    const [bad, setBad] = useState(false);
+    const [submitted, setSubmit] = useState(false);
+    const [myUpdates, setMyUpdates] = useState({});
 
     const handleInputChange = async (event) => {
       const name = event.target.name;
@@ -9,10 +12,10 @@ function ManufacturerForm() {
       setMyUpdates({...myUpdates, [name]: value})
     }
 
-    const [myUpdates, setMyUpdates] = useState({});
+
     const handleSubmit = async (event) => {
       event.preventDefault();
-      const techniciansURL = `http://localhost:8100/api/manufacturers/`
+      const manufacturerURL = `http://localhost:8100/api/manufacturers/`
       const fetchConfig = {
         method: "post",
         body: JSON.stringify(myUpdates),
@@ -20,14 +23,22 @@ function ManufacturerForm() {
           'Content-Type': 'application/json',
         },
       };
-      const response = await fetch(techniciansURL, fetchConfig);
+      const response = await fetch(manufacturerURL, fetchConfig);
 
       if (response.ok) {
-        const newTechnician = await response.json();
-        console.log(newTechnician)
-       } else {
-        console.log('error')
-       }
+        const newManufacturer = await response.json();
+        setMyUpdates([])
+        setSubmit(true)
+      setTimeout(() => {
+          setSubmit(false)
+        }, 606);
+    } else {
+      setBad(false)
+      setSubmit(true)
+      setTimeout(() => {
+          setBad(false)
+        }, 700);
+    };
     }
     useEffect(() => {
 
@@ -39,6 +50,8 @@ function ManufacturerForm() {
         <div className="row">
             <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
+               { bad && <div className="alert alert-danger">Failed to upload</div>}
+                { submitted && <div className="alert alert-success">Success!</div>}
                 <h1>Add a new Manufacturer</h1>
                 <form onSubmit={handleSubmit} id="create-location-form">
                 <div className="form-floating mb-3">
