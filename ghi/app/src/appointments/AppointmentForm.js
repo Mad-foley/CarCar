@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 function AppointmentForm () {
     const [technicians, setTechnicians] = useState([]);
+    const [bad, setBad] = useState(false);
+    const [submitted, setSubmit] = useState(false);
     const fetchData = async () => {
         const url = 'http://localhost:8080/api/technicians/';
 
@@ -44,11 +46,18 @@ function AppointmentForm () {
 
     if (response.ok) {
       const newAppointment = await response.json();
-      console.log(newAppointment)
-     } else {
-      console.log('error')
-     }
-  }
+      setSubmit(true)
+      setTimeout(() => {
+          setSubmit(false)
+        }, 606);
+    } else {
+      setBad(false)
+      setSubmit(true)
+      setTimeout(() => {
+          setBad(false)
+        }, 700);
+    };
+}
 
 
     return (
@@ -56,6 +65,8 @@ function AppointmentForm () {
         <div className="row">
             <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
+            { bad && <div className="alert alert-danger">Failed to upload</div>}
+              { submitted && <div className="alert alert-success">Success!</div>}
                 <h1>Create a new Appointment</h1>
                 <form onSubmit={handleSubmit} id="create-location-form">
                 <div className="form-floating mb-3">

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 function AutomobileForm () {
   const [models, setModels] = useState([])
+  const [bad, setBad] = useState(false);
+  const [submitted, setSubmit] = useState(false);
   const [formData, setFormData] = useState({
     color: '',
     year: '',
@@ -10,9 +12,6 @@ function AutomobileForm () {
     model_id: "",
 
   })
-
-  const [bad, setBad] = useState(false);
-  const [submitted, setSubmit] = useState(false);
 
 
   useEffect(() => {
@@ -97,8 +96,8 @@ function AutomobileForm () {
                           })}
                   </select>
               </div>
-              <Link to="/inventory/automobiles" className="btn btn-info" style={{float: "right"}}>View Automobiles</Link>
-              <button class="btn btn-success">Add!</button>
+              <Link to="/inventory/automobiles" className="btn btn-success" style={{float: "right"}}>View Automobiles</Link>
+              <button className="btn btn-success">Add!</button>
               </form>
               </div>
           </div>
