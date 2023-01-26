@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 
 function SalesPersonForm() {
-  const [autos, setAutomobiles] = useState([]);
-  const [formData, setFormData] = useState({
-    name: "",
-    employee_number: "",
-  });
+	const [bad, setBad] = useState(false);
+    const [submitted, setSubmit] = useState(false);
+    const [autos, setAutomobiles] = useState([]);
+    const [formData, setFormData] = useState({
+        name: "",
+        employee_number: "",
+        });
 
-  const [hasSignedUp, setHasSignedUp] = useState(false);
-  const [bad, setBad] = useState(false);
-  const [submitted, setSubmit] = useState(false);
-
-  
-  const getData = async () => {
+const getData = async () => {
     const url = "http://localhost:8090/api/salespeople/";
     const response = await fetch(url);
 
@@ -22,13 +19,13 @@ function SalesPersonForm() {
     } else {
       console.log("ERROR");
     }
-  };
+    };
 
-  useEffect(() => {
+    useEffect(() => {
     getData();
   }, []);
 
-  const handleInputChange = async (event) => {
+const handleInputChange = async (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setFormData({ ...formData, [name]: value });
@@ -70,27 +67,11 @@ function SalesPersonForm() {
           <h1>Add Salesperson</h1>
           <form onSubmit={handleSubmit} id="create-auto-form">
             <div className="form-floating mb-3">
-              <input
-                onChange={handleInputChange}
-                placeholder="name"
-                required
-                type="text"
-                name="name"
-                id="name"
-                className="form-control"
-              />
+              <input onChange={handleInputChange} placeholder="name" required type="text" name="name" id="name" className="form-control"/>
               <label htmlFor="name">Employee Name</label>
             </div>
             <div className="form-floating mb-3">
-              <input
-                onChange={handleInputChange}
-                placeholder="employee_number"
-                required
-                type="text"
-                name="employee_number"
-                id="employee_number"
-                className="form-control"
-              />
+              <input onChange={handleInputChange} placeholder="employee_number" required type="text" name="employee_number" id="employee_number" className="form-control"/>
               <label htmlFor="employee_number">Employee Number</label>
             </div>
             <button className="btn btn-success">Add</button>

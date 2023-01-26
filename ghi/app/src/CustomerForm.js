@@ -1,14 +1,32 @@
-import {useState} from 'react';
+import React, { useEffect, useState } from "react";
 
 const CustomerForm = () => {
+    const [bad, setBad] = useState(false);
+    const [submitted, setSubmit] = useState(false);
+    const [customer, setCustomers] = useState([]);
     const [formData, setFormData] = useState({
         name: '',
         address: '',
         phone_number: ''
     });
 
-    const [bad, setBad] = useState(false);
-    const [submitted, setSubmit] = useState(false);
+
+const getData = async () => {
+    const url = "http://localhost:8090/api/customers/";
+    const response = await fetch(url);
+
+    if (response.ok) {
+        const data = await response.json();
+        setCustomers(data.customer);
+    } else {
+        console.log("ERROR");
+    }
+    };
+
+    useEffect(() => {
+    getData();
+    }, []);
+
 
     const handleFormChange = (e) => {
         setFormData({
@@ -52,22 +70,18 @@ const CustomerForm = () => {
                 { submitted && <div className="alert alert-success">Success!</div>}
                   <h1>Add a customer</h1>
                     <form onSubmit={handleSubmit} id="form">
-
                         <div className="form-floating mb-3">
                             <input onChange={handleFormChange} placeholder="..." type="text" name="name" className="form-control"/>
                             <label htmlFor="name">Name</label>
                         </div>
-
                         <div className="form-floating mb-3">
                             <input onChange={handleFormChange} placeholder="..." type="text" name="address" className="form-control"/>
                             <label htmlFor="address">Address</label>
                         </div>
-
                         <div className="form-floating mb-3">
                             <input onChange={handleFormChange} placeholder="..." type="text" name="phone_number" className="form-control"/>
                             <label htmlFor="phone_number">Phone Number</label>
                         </div>
-
                     <button className="btn btn-success">Add</button>
                     </form>
                 </div>
