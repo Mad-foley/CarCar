@@ -92,7 +92,7 @@ function AutomobileForm () {
                               <option key={models.id} value={models.id}>
                                     {models.name}
                               </option>
-                      );
+                          );
                           })}
                   </select>
               </div>

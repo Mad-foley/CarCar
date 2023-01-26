@@ -1,5 +1,5 @@
 from common.json import ModelEncoder
-
+from .models import AutomobileVO, Employee, Customer, Sale
 
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
