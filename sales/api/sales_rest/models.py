@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class AutomobileVO(models.Model):
     import_href = models.CharField(max_length=200)
-    vin = models.CharField(max_length=30)
+    vin = models.CharField(max_length=30, unique=True)
 
     def __str__(self):
         return self.vin
