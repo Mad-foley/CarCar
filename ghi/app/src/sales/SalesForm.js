@@ -55,7 +55,6 @@ const SalesForm = () => {
 
     const handleSubmit =  async (e) => {
         e.preventDefault();
-        console.log(formData)
         const fetchConfig = {
             method: 'POST',
             body: JSON.stringify(formData),

@@ -37,7 +37,6 @@ function ModelForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(myUpdates)
     const modelUrl = `http://localhost:8100/api/models/`
     const fetchConfig = {
       method: "post",

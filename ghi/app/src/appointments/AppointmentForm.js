@@ -33,7 +33,6 @@ function AppointmentForm () {
   const [myUpdates, setMyUpdates] = useState({});
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(myUpdates)
     const appointmentsURL = `http://localhost:8080/api/appointments/`
     const fetchConfig = {
       method: "post",

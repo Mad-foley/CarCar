@@ -24,7 +24,6 @@ function TechnicianForm() {
 
       if (response.ok) {
         const newTechnician = await response.json();
-        console.log(newTechnician)
        } else {
         console.log('error')
        }
@@ -40,7 +39,7 @@ function TechnicianForm() {
             <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
                 <h1>Add a new Technician</h1>
-                <form onSubmit={handleSubmit} id="create-location-form">
+                <form onSubmit={handleSubmit} id="create-technician-form">
                 <div className="form-floating mb-3">
                     <input placeholder="name" required type="text" name="name" onChange={handleInputChange} id="name" className="form-control"/>
                     <label htmlFor="name">Name</label>
