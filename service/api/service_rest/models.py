@@ -3,7 +3,7 @@ from django.urls import reverse
 
 # Create your models here.
 class AutomobileVO(models.Model):
-    vin = models.CharField(max_length=200)
+    vin = models.CharField(max_length=20, unique=True)
     import_href = models.CharField(max_length=200)
 
 class Technician(models.Model):
@@ -13,7 +13,7 @@ class Technician(models.Model):
             return self.name
 
 class Appointment(models.Model):
-    vin = models.CharField(max_length=17, unique=True)
+    vin = models.CharField(max_length=17)
     customer_name = models.CharField(max_length=200)
     appointment_time = models.DateTimeField()
     technician = models.ForeignKey(
