@@ -11,4 +11,4 @@ Created with Ciana Hoggard at Hack Reactor
 5. Run `docker compose up`
 6. React interface runs on localhost port 3000.
 
-## If you encounter an error, try `npm install` docker container named react-1
+## If you encounter an error, try `npm install` in the docker container's terminal named "react-1"
